@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="--light-theme" id="chat">
+                <div id="intro">
+                    <div class="icon-text-container">
+                        <img class="icon" width="96" height="96" src="https://img.icons8.com/fluency/96/graduation-cap.png" alt="graduation-cap"/>
+                        <span>Hỏi đáp kiến thức phổ thông tự động</span>
+                    </div>
+                    <div class="text-container">Từ dữ liệu đã qua đào tạo học máy.</div>
+                    <div class="text-container">Thực hiện bởi Ngô Hữu Lễ và Lê Dương Minh Khoa trường Đại học Tôn Đức Thắng.</div>
+                </div>
+                <div class="chat__conversation-board" id="chatbox" style="display: none;">     
+                </div>
+                <div id="loadingMessage" style="display: none;">Đang tải...</div>
+                <div class="chat__conversation-panel">
+                    <div class="chat__conversation-panel__container">
+                        <input id="userInput" type="text" class="chat__conversation-panel__input panel-item" placeholder="Hãy nhập một câu hỏi ..."/>
+                        
+                        <button onclick="predictionMessage()" class="chat__conversation-panel__button panel-item btn-icon send-message-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-reactid="1036">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-column">
+            <div class="title-side">
+                Chủ đề trong môn học
+            </div>
+            <div class="spacer"></div>
+            <div id="buttons-container">
+                {% for number, text, color in buttons %}
+                    <button class="buttons" style="background-color: {{ color }};" >{{ text }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ number }}</button>
+                {% endfor %}
+    
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        
+    </script>
+</body>
+</html>
